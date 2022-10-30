@@ -1,0 +1,37 @@
+server:
+  port: 9092
+
+spring:
+  zipkin:
+    enabled: true
+    base-url: http://localhost:9411
+    service:
+      name: auth-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://35.193.245.172:1111/java3user
+    username: postgres
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+myredis:
+    host: localhost
+    port: 6379
+
+myapplication:
+  user-service:
+    feign-client: http://localhost:9092/api/v1
+  elastic-service:
+    feign-client: http://localhost:9099/api/v1/elastic
+
+# JWT
+myjwt:
+  secretkey: ${secretkey}
+  audience: ${audience}
+  issuer: ${issuer}

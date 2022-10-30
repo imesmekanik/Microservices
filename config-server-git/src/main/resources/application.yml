@@ -1,0 +1,16 @@
+server:
+  port: 8889
+
+spring:
+  application:
+    name: config-server-git
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/miteOrhanPractice/configlist.git"
+          default-label: main
+          skip-ssl-validation: true
+          #eger repo private ise asagidakileri ekle
+          #username: githubismi
+          #password: githubdantokenalipyapistir
